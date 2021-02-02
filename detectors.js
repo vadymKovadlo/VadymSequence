@@ -4,7 +4,7 @@ class VadymsequencePackageDetectors extends DG.Package {
     //input: column col
     //output: string semType
     detectNucleotides(col) {
-        if (col.type === DG.TYPE.STRING && detectType(col) === true){
+        if (col.type === DG.TYPE.STRING && isNucleotide(col)){
             col.semType = 'dna_nucleotide';
             return col.semType;
         }
@@ -13,7 +13,7 @@ class VadymsequencePackageDetectors extends DG.Package {
 
     //input: column col
     //output: bool result
-    detectType(col) {
+    isNucleotide(col) {
         for (var key in col.categories) {
             if (!checkNucleotide(col.categories[key])){ return false; }
         }
