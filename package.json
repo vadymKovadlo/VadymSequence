@@ -1,0 +1,19 @@
+{
+	"name": "vadymsequence",
+	"fullName": "VadymSequence",
+	"version": "0.0.1",
+	"description": "",
+	"dependencies": {
+		"datagrok-api": "latest"
+	},
+	"scripts": {
+		"debug-vadymsequence": "grok publish --rebuild",
+		"release-vadymsequence": "grok publish --rebuild --release",
+		"build-vadymsequence": "webpack",
+		"build": "webpack",
+		"debug-vadymsequence-public": "grok publish public --rebuild",
+		"release-vadymsequence-public": "grok publish public --rebuild --release",
+		"debug-vadymsequence-local": "grok publish local --rebuild",
+		"release-vadymsequence-local": "grok publish local --rebuild --release"
+	}
+}
