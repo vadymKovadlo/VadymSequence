@@ -1,13 +1,32 @@
-class VadymSequencePackageDetectors extends DG.Package {
+class VadymsequencePackageDetectors extends DG.Package {
+
     //tags: semTypeDetector
     //input: column col
     //output: string semType
     detectNucleotides(col) {
-        // let bases = ["A", "G", "C", "T"]; && bases.includes(col.categories)
-        if (col.type === DG.TYPE.STRING){
+        if (col.type === DG.TYPE.STRING && detectType(col) === true){
+            console.log('CATEGORIES === ' + col.categories)
+            console.log('VALUES === ' + col.categories.values())
+            detectType(col)
             col.semType = 'dna_nucleotide';
             return col.semType;
         }
         return null;
+    }
+
+    //input: column col
+    //output: bool result
+    detectType(col) {
+        for (var key in col.categories) {
+            if (!checkNucleotide(col.categories[key])){ return false; }
+        }
+        return true;
+    }
+
+    //input: string nucleotide
+    //output: bool result
+    checkNucleotide(nucleotide) {
+        const allowed = new Set(['A','C','T','G']);
+        return nucleotide.split('').every(x => allowed.has(x));
     }
 }
