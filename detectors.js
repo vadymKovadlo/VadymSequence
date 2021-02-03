@@ -4,26 +4,24 @@ class VadymsequencePackageDetectors extends DG.Package {
     //input: column col
     //output: string semType
     detectNucleotides(col) {
-        if (col.type === DG.TYPE.STRING && isNucleotide(col)){
+        if (col.type === DG.TYPE.STRING && this.isNucleotideColumn(col)){
             col.semType = 'dna_nucleotide';
             return col.semType;
         }
         return null;
     }
 
-    //input: column col
-    //output: bool result
-    isNucleotide(col) {
-        for (var key in col.categories) {
-            if (!checkNucleotide(col.categories[key])){ return false; }
+    isNucleotideColumn(col) {
+        for (let valueInRow of col.categories) {
+            if (!this.checkWhetherItIsNucleotide(valueInRow)){ return false; }
         }
         return true;
     }
 
     //input: string nucleotide
     //output: bool result
-    checkNucleotide(nucleotide) {
-        const allowed = new Set(['A','C','T','G']);
-        return nucleotide.split('').every(x => allowed.has(x));
+    checkWhetherItIsNucleotide(inputString) {
+        const dnaBases = new Set(['A','C','T','G']);
+        return inputString.split('').every(x => dnaBases.has(x));
     }
 }

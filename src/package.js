@@ -21,6 +21,7 @@ function complementCharacter(nucleotide_element) {
 }
 
 //name: mycomplement
+//tags: panel, widgets
 //input: string nucleotides {semType: dna_nucleotide} 
 //output: string result {semType: dna_nucleotide} 
 export function mycomplement(nucleotides) {
