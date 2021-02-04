@@ -30,3 +30,9 @@ export function mycomplement(nucleotides) {
   .map(complementCharacter)
   .join("");
 }
+
+//name: getOrders
+//output: dataframe df
+export async function getOrders() {
+  return await grok.data.query(`VadymSequence:ordersByCountry`, { country: 'USA'});
+}

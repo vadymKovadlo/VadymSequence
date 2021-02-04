@@ -2,16 +2,17 @@
     "name": "Vadym",
     "#type": "DataConnection",
     "parameters": {
-      "server": "#{GROK_DB_SERVER}",
-      "db": "#{DB_NAME}"
+      "server": "localhost",
+      "port": 5432,
+      "db": "northwind"
     },
     "credentials" : {
       "parameters": {
-        "login": "#{LOGIN}",
-        "password": "#{PASSWORD}"
+        "login": "northwind",
+        "password": "northwind"
       }
     },
-    "dataSource": "PostgreSQL",
-    "description": "#{DB_NAME} db",
+    "dataSource": "PostgresNet",
+    "description": "northwind db",
     "tags": ["demo"]
 }
